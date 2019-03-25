@@ -1,0 +1,42 @@
+# Audio Splice Application for Android Software Requirements Specification Document
+
+# Purpose 
+
+An application which will load audio files and allow playing, cutting and
+pasting, and deleting parts of a track.
+
+# Overall Description
+
+# Product Perspective
+
+The app will store in memory a file in aac format for editing.
+
+## Product Features
+
+1. opening a file and having it appear as a waveform
+2. dragging through the file and selecting a portion for cut/copy
+3. pasting it into the output wave.
+4. saving audio files
+5. deleting part of the audio file
+6. copying one part of a audio file onto another
+7. playing the audio file
+8. recording a new audio file
+
+After which we'll do 'multiple waveforms', then channels. We'll implement that
+naively with LinearLayout, but eventually we'll work towards something like a
+RecyclerView or implement what the iOS people call a (horizontal) 'Carousel
+view' from scratch.
+
+## Operating Environment
+
+- Android OS
+- Writen in Java (and maybe Kotlin?)
+- User Interface Drive Application
+
+## Design and Implementation Constraints
+
+# External Dependencies
+
+- Android OS
+- Android Studio
+- TarsosDSP library

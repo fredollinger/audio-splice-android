@@ -1,0 +1,32 @@
+Awesome! Sounds great Fred!
+
+For your design doc, some classes i've written thus far:
+
+AudioSnip: an object that holds a buffer of snipped audio in the .aac format. Created when the user cuts or copies a selection of audio, and has a start/end time.
+
+Recorder: Interface for a recorder
+
+AudioRecorder: Implements the interface. The audio recorder is used to record voice so the app can be tested manually.
+
+Waveform: 'model' class for an audio file. Holds a reference to an audio file in memory. AudioSnips can be cut/copied from or pasted to a Waveform.
+
+What remains is the visual stuff (how to display the waveform), the recorder interface, and the UI for copying / cutting. This will use surfaceviews, openGL.
+
+TarsosDSP is a library that we will use for analyzing Waveforms to find the peaks and valleys of our waveform.
+
+The design from here is up to you!
+
+was thinking about multiple input files being opened at a time can also layer
+them in such a way that you would swipe between them (only one would show at a
+time) but always have the output file.  additionally, view reuse for channels
+might be important in the future.
+
+To reiterate: don't get too attached to anything we do in the UI at this stage;
+remember that we're going to iterate through to something a bit more complex
+than old fashioned linearlayouts.  For now, we'll just want to test the
+following features:
+
+1. opening a file and having it appear as a waveform
+2. dragging through the file and selecting a portion for cut/copy
+3. pasting it into the output wave.
+After which we'll do 'multiple waveforms', then channels. We'll implement that naively with LinearLayout, but eventually we'll work towards something like a RecyclerView or implement what the iOS people call a (horizontal) 'Carousel view' from scratch.

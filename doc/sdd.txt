@@ -1,0 +1,137 @@
+# Audio Splice Application for Android System Design Document
+
+# INTRODUCTION
+
+## Purpose 
+
+An application which will load wav files and allow playing, cutting and
+pasting, and deleting parts of a track.
+
+QUESTION: Are other file formats used?
+
+# SYSTEM OVERVIEW
+
+## Objects
+
+### AudioSnip 
+
+an object that holds a buffer of snipped audio in the .aac format. Created when
+the user cuts or copies a selection of audio, and has a start/end time.
+
+### Recorder 
+
+Interface for a recorder
+
+### AudioPlayer
+
+plays the audio file
+
+### AudioRecorder 
+
+Implements the interface. The audio recorder is used to record voice so the app
+can be tested manually.
+
+### Waveform 
+
+'model' class for an audio file. Holds a reference to an audio file in memory.
+AudioSnips can be cut/copied from or pasted to a Waveform.
+
+### WavDisplay how to display the waveform) 
+
+### Recorder Interface
+
+the recorder interface 
+
+### AudioEditUI
+
+UI for copying / cutting. 
+
+This will use surfaceviews, openGL.
+
+### FileLoader
+
+Will load the file in whatever format and create the Waveform object
+
+# DATA DESGIGN
+
+## Data Description
+
+Explain how the information domain of your system is transformed into data structures.
+Describe how the major data or system entities are stored, processed and organized. List any
+databases or data storage items.
+
+## Data Directory
+
+Alphabetically list the system entities or major data along with their types and descriptions. If
+you provided a functional description in Section 3.2, list all the functions and function
+parameters. If you provided an OO description, list the objects and its attributes, methods and
+method parameters.
+
+# HUMAN INTERFACE DESIGN
+
+# UI OVERVIEW
+
+## Menu
+
+### Load Wav File
+
+Menu item "Load Sound File" will allow the wav file to be loaded.
+
+### Save As Wav File
+
+Will allow one to save as a different name and to change the format to whatever formats are supported.
+
+## Toolbar
+
+### Play
+
+### Pause
+
+### Record
+
+### Select
+
+### Cut 
+
+### Paste
+
+# 6 SOFTWARE REQUIREMENTS TRACEABILITY MATRIX
+
+Provide a cross­reference that traces components and data structures to the
+requirements in your SRS document.
+
+1. loading audio files
+
+Waveform, FileLoader
+
+2. saving audio files
+
+Waveform, FileLoader
+
+3. deleting part of the audio file
+
+AudioEditUI 
+
+4. copying one part of a audio file onto another
+
+AudioEditUI
+
+5. playing the audio file
+
+6. recording a new audio file
+
+Waveform, AudioRecorder
+
+# EXTERNAL LIBRARIES USED
+
+## TarsosDSP 
+
+a library that we will use for analyzing Waveforms to find the peaks and
+valleys of our waveform.
+
+# FUTURE DIRECTIONS
+
+Was thinking about multiple input files being opened at a time can also layer
+them in such a way that you would swipe between them (only one would show at a
+time) but always have the output file.  additionally, view reuse for channels
+might be important in the future.
