@@ -15,9 +15,12 @@ import org.afree.chart.plot.Plot;
 
 // https://tutorialwing.com/android-surfaceview-tutorial-with-example/
 
-public class MainActivity extends AppCompatActivity {
+// https://source.android.com/devices/graphics/architecture.html
+
+public class MainActivity extends AppCompatActivity implements SurfaceHolder.Callback {
 
     private SurfaceHolder surfaceHolder;
+    private SurfaceView surfaceView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,4 +65,21 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    // BEGIN SURFACE VIEW EXAMPLE
+    @Override
+    public void surfaceCreated(SurfaceHolder holder) {
+
+    }
+
+    @Override
+    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+
+    }
+
+    @Override
+    public void surfaceDestroyed(SurfaceHolder holder) {
+
+    }
 }
+    // END SURFACE VIEW EXAMPLE
