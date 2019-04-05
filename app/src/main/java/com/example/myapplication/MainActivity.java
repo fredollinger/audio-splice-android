@@ -7,11 +7,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 import android.view.View;
 
 import org.afree.chart.plot.Plot;
 
+// https://tutorialwing.com/android-surfaceview-tutorial-with-example/
+
 public class MainActivity extends AppCompatActivity {
+
+    private SurfaceHolder surfaceHolder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +25,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // BEGIN SURFACE VIEW EXAMPLE
+        surfaceView = findViewById(R.id.surfaceView1);
+
+        // END SURFACE VIEW EXAMPLE
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

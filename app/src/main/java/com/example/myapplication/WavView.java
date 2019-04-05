@@ -1,9 +1,21 @@
-public class WavView extends SurfaceView {
-    public CustomSurfaceView(Context context) {
+package com.example.myapplication;
+
+
+import android.view.SurfaceView;
+import android.content.Context;
+
+
+public class WavView {
+
+}
+
+// public class WavView extends Activity implements SurfaceHolder.Callback {
+//    public void WavView(Context context) {
+/*
         super(context);
 
         setFocusable(true);
-/*
+
         if(surfaceHolder == null) {
             // Get surfaceHolder object.
             surfaceHolder = getHolder();
@@ -25,6 +37,7 @@ public class WavView extends SurfaceView {
         this.setZOrderOnTop(true);
 
         this.getHolder().setFormat(PixelFormat.TRANSLUCENT);
-    }
-    */
-}
+        */
+   // }
+
+// }
