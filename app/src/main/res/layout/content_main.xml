@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <SurfaceView
+    <com.example.myapplication.DemoView
         android:id="@+id/surfaceView1"
 
         android:layout_width="match_parent"
