@@ -77,6 +77,8 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
+// https://www.truiton.com/2013/04/android-tutorial-introduction-to-afreechart-with-sample/
+
 public class DemoView extends View
         implements ChartChangeListener, ChartProgressListener{
 
@@ -670,7 +672,8 @@ public class DemoView extends View
 
         inertialMove();
 
-        paintComponent(canvas);
+        // TODO: crashes
+        // paintComponent(canvas);
     }
 
     @Override
@@ -787,7 +790,9 @@ public class DemoView extends View
 //            canvas.setTransform(saved);
 
 //        }
-        this.chart.draw(canvas, chartArea, this.anchor, this.info);
+
+        // TODO: crashes
+        // this.chart.draw(canvas, chartArea, this.anchor, this.info);
 
 //        Iterator iterator = this.overlays.iterator();
 //        while (iterator.hasNext()) {

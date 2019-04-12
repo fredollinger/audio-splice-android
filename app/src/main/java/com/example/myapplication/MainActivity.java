@@ -11,16 +11,14 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 
-import org.afree.chart.plot.Plot;
-
 // https://tutorialwing.com/android-surfaceview-tutorial-with-example/
 
 // https://source.android.com/devices/graphics/architecture.html
 
 public class MainActivity extends AppCompatActivity implements SurfaceHolder.Callback {
 
-    private SurfaceHolder surfaceHolder;
-    private SurfaceView surfaceView;
+    // private SurfaceHolder surfaceHolder;
+    // private SurfaceView surfaceView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
         setSupportActionBar(toolbar);
 
         // BEGIN SURFACE VIEW EXAMPLE
-        surfaceView = findViewById(R.id.surfaceView1);
+        //surfaceView = findViewById(R.id.waveForm1);
 
         // END SURFACE VIEW EXAMPLE
 

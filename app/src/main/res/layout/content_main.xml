@@ -5,22 +5,21 @@
     android:orientation="vertical" >
 
     <com.example.myapplication.DemoView
-        android:id="@+id/surfaceView1"
-
+        android:id="@+id/waveForm1"
         android:layout_width="match_parent"
         android:layout_height="0px"
         android:layout_weight="1"
         android:visibility="visible" />
 
     <SurfaceView
-        android:id="@+id/surfaceView2"
+        android:id="@+id/waveForm2"
         android:layout_width="match_parent"
         android:layout_height="0px"
         android:layout_weight="1"
         android:visibility="visible" />
 
     <SurfaceView
-        android:id="@+id/surfaceView3"
+        android:id="@+id/waveForm3"
         android:layout_width="match_parent"
         android:layout_height="0px"
         android:layout_weight="1"
