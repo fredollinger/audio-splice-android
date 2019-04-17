@@ -146,7 +146,7 @@ public class DemoView extends View
     public static final int DEFAULT_MOVE_TRIGGER_DISTANCE = 10;
 
     /** The chart that is displayed in the panel. */
-    private AFreeChart chart;
+        private AFreeChart myAFreeChart;
 
     /** Storage for registered (chart) touch listeners. */
     private transient CopyOnWriteArrayList<ChartTouchListener> chartMotionListeners;
@@ -281,7 +281,7 @@ public class DemoView extends View
                 if (count == 1) {
                     mNowTimeMillis = System.currentTimeMillis();
                     if(mNowTimeMillis - mPrevTimeMillis < 400) {
-                        if(chart.getPlot() instanceof Movable) {
+                        if(myAFreeChart.getPlot() instanceof Movable) {
                             restoreAutoBounds();
                             mScale = 1.0f;
                             inertialMovedFlag = false;
@@ -401,7 +401,7 @@ public class DemoView extends View
         double hMovePercent = moveBoundX / dataAreaWidth;
         double vMovePercent = - moveBoundY / dataAreaHeight;
 
-        Plot p = this.chart.getPlot();
+        Plot p = this.myAFreeChart.getPlot();
         if (p instanceof Movable) {
             PlotRenderingInfo info = this.info.getPlotInfo();
             // here we tweak the notify flag on the plot so that only
@@ -430,7 +430,7 @@ public class DemoView extends View
      * Restores the auto-range calculation on both axes.
      */
     public void restoreAutoBounds() {
-        Plot plot = this.chart.getPlot();
+        Plot plot = this.myAFreeChart.getPlot();
         if (plot == null) {
             return;
         }
@@ -448,7 +448,7 @@ public class DemoView extends View
      * Restores the auto-range calculation on the domain axis.
      */
     public void restoreAutoDomainBounds() {
-        Plot plot = this.chart.getPlot();
+        Plot plot = this.myAFreeChart.getPlot();
         if (plot instanceof Zoomable) {
             Zoomable z = (Zoomable) plot;
             // here we tweak the notify flag on the plot so that only
@@ -468,7 +468,7 @@ public class DemoView extends View
      * Restores the auto-range calculation on the range axis.
      */
     public void restoreAutoRangeBounds() {
-        Plot plot = this.chart.getPlot();
+        Plot plot = this.myAFreeChart.getPlot();
         if (plot instanceof Zoomable) {
             Zoomable z = (Zoomable) plot;
             // here we tweak the notify flag on the plot so that only
@@ -516,22 +516,22 @@ public class DemoView extends View
     /**
      * Sets the chart that is displayed in the panel.
      *
-     * @param chart  the chart (<code>null</code> permitted).
+     * @param myAFreeChart  the chart (<code>null</code> permitted).
      */
-    public void setChart(AFreeChart chart) {
+    public void setMyAFreeChart(AFreeChart myAFreeChart) {
 
         // stop listening for changes to the existing chart
-        if (this.chart != null) {
-            this.chart.removeChangeListener(this);
-            this.chart.removeProgressListener(this);
+        if (this.myAFreeChart != null) {
+            this.myAFreeChart.removeChangeListener(this);
+            this.myAFreeChart.removeProgressListener(this);
         }
 
         // add the new chart
-        this.chart = chart;
-        if (chart != null) {
-            this.chart.addChangeListener(this);
-            this.chart.addProgressListener(this);
-            Plot plot = chart.getPlot();
+        this.myAFreeChart = myAFreeChart;
+        if (myAFreeChart != null) {
+            this.myAFreeChart.addChangeListener(this);
+            this.myAFreeChart.addProgressListener(this);
+            Plot plot = myAFreeChart.getPlot();
             if (plot instanceof Zoomable) {
                 Zoomable z = (Zoomable) plot;
                 z.isRangeZoomable();
@@ -672,8 +672,7 @@ public class DemoView extends View
 
         inertialMove();
 
-        // TODO: crashes
-        // paintComponent(canvas);
+        paintComponent(canvas);
     }
 
     @Override
@@ -791,8 +790,7 @@ public class DemoView extends View
 
 //        }
 
-        // TODO: crashes
-        // this.chart.draw(canvas, chartArea, this.anchor, this.info);
+        this.myAFreeChart.draw(canvas, chartArea, this.anchor, this.info);
 
 //        Iterator iterator = this.overlays.iterator();
 //        while (iterator.hasNext()) {
@@ -906,7 +904,7 @@ public class DemoView extends View
      */
     private void zoom(PointF source, double startDistance, double endDistance) {
 
-        Plot plot = this.chart.getPlot();
+        Plot plot = this.myAFreeChart.getPlot();
         PlotRenderingInfo info = this.info.getPlotInfo();
 
         if(plot instanceof Zoomable) {
@@ -963,12 +961,12 @@ public class DemoView extends View
         int y = (int) (event.getY() / this.scaleY);
 
         this.anchor = new PointF(x, y);
-        if (this.chart == null) {
+        if (this.myAFreeChart == null) {
             return;
         }
-        this.chart.setNotify(true);  // force a redraw
+        this.myAFreeChart.setNotify(true);  // force a redraw
 
-        chart.handleClick((int)event.getX(), (int)event.getY(), info);
+        myAFreeChart.handleClick((int)event.getX(), (int)event.getY(), info);
         inertialMovedFlag = false;
 
         // new entity code...
@@ -983,7 +981,7 @@ public class DemoView extends View
                 entity = entities.getEntity(x, y);
             }
         }
-        ChartTouchEvent chartEvent = new ChartTouchEvent(getChart(), event,
+        ChartTouchEvent chartEvent = new ChartTouchEvent(getMyAFreeChart(), event,
                 entity);
         for (int i = chartMotionListeners.size() - 1; i >= 0; i--) {
             this.chartMotionListeners.get(i).chartTouched(chartEvent);
@@ -996,8 +994,8 @@ public class DemoView extends View
      *
      * @return The chart (possibly <code>null</code>).
      */
-    public AFreeChart getChart() {
-        return this.chart;
+    public AFreeChart getMyAFreeChart() {
+        return this.myAFreeChart;
     }
 
     /**
@@ -1052,7 +1050,7 @@ public class DemoView extends View
      */
     public void chartChanged(ChartChangeEvent event) {
 //        this.refreshBuffer = true;
-        Plot plot = this.chart.getPlot();
+        Plot plot = this.myAFreeChart.getPlot();
         if (plot instanceof Zoomable) {
             Zoomable z = (Zoomable) plot;
             this.orientation = z.getOrientation();

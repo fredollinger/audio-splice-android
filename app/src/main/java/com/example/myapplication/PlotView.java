@@ -24,12 +24,9 @@ public class PlotView extends DemoView {
      */
     public PlotView(Context context) {
         super(context);
-
         CategoryDataset dataset = createDataset();
         AFreeChart chart = createChart(dataset);
-
-        setChart(chart);
-
+        setMyAFreeChart(chart);
     }
 
     /**

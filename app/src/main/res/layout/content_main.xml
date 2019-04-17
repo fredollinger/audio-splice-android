@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <com.example.myapplication.DemoView
+    <com.example.myapplication.PlotView
         android:id="@+id/waveForm1"
         android:layout_width="match_parent"
         android:layout_height="0px"
