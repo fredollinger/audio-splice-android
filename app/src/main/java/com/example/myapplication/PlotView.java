@@ -15,6 +15,7 @@ import org.afree.graphics.SolidColor;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.util.AttributeSet;
 
 public class PlotView extends DemoView {
 
@@ -27,6 +28,24 @@ public class PlotView extends DemoView {
         CategoryDataset dataset = createDataset();
         AFreeChart chart = createChart(dataset);
         setMyAFreeChart(chart);
+    }
+
+    public PlotView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        CategoryDataset dataset = createDataset();
+        AFreeChart chart = createChart(dataset);
+        setMyAFreeChart(chart);
+    }
+
+    public PlotView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        CategoryDataset dataset = createDataset();
+        AFreeChart chart = createChart(dataset);
+        setMyAFreeChart(chart);
+    }
+
+    public PlotView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
     }
 
     /**

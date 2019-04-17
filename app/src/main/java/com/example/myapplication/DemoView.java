@@ -97,6 +97,19 @@ public class DemoView extends View
         this.initialize();
     }
 
+    // gets called from XML
+    public DemoView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        mHandler = new Handler();
+        this.initialize();
+    }
+
+    public DemoView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+        mHandler = new Handler();
+        this.initialize();
+    }
+
     /**
      * initialize parameters
      */
